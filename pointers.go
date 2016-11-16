@@ -8,7 +8,8 @@ func main() {
 	fmt.Println(a)
 	fmt.Println(&a)
 
-	var b *int = &a
+	var b *string = &a
 
 	fmt.Println(b)
+	fmt.Println(*b)
 }
