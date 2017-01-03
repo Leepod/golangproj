@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func main() {
@@ -13,12 +12,9 @@ func main() {
 		for i := 0; i < 10; i++ {
 			c <- i
 		}
+		close(c)
 	}()
-
-	go func() {
-		for {
-			fmt.Println(<-c)
-		}
-	}()
-	time.Sleep(time.Second)
+	for n := range c {
+		fmt.Println(n)
+	}
 }
